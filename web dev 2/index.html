@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>DOM Introduction</title>
 </head>
+<style>
+    li{
+        background-color: aqua;
+        width:300px;
+        display: flex;
+        justify-content: space-between;
+        margin:5px;
+    }
+
+</style>
 <body>
 
     <h1>INTRO DOM manipulation </h1>
@@ -19,10 +29,14 @@
     <p id="styleText">Hello</p>
 
     <form>
-        <input type="text" placeholder="Enter your name"><br>
+        <!-- <input type="text" placeholder="Enter your name"><br>
         <input type="password"><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit"> -->
     </form>
+
+    <input type="text" id="name" placeholder="enter name">
+    <button class="btn">add student</button>
+    <div class="list"></div>
     <script src="script.js"></script>
 </body>
 </html>

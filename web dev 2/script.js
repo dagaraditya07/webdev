@@ -136,11 +136,47 @@
 
 
 
-let count=0;
-const interval=setInterval(()=>{
-    count+=1
-    console.log(count)
-    if (count==10){
-        clearInterval(interval)
-    }
-},1000)
+// let count=0;
+// const interval=setInterval(()=>{
+//     count+=1
+//     console.log(count)
+//     if (count==10){
+//         clearInterval(interval)
+//     }
+// },1000)5
+
+
+
+// const studentName=document.querySelector('#name')
+// const button=document.querySelector('.btn')
+// const list=document.querySelector('.list')
+
+// button.addEventListener('click',()=>{
+//     const li=document.createElement('li')
+//     const deleteButton=document.createElement('button')
+
+//     li.innerText=studentName.value
+//     deleteButton.innerText="delete"
+
+//     deleteButton.addEventListener('click',()=>{
+//         list.removeChild(li)
+//     })
+
+//     li.appendChild(deleteButton)
+//     list.appendChild(li)
+//     studentName.value=""
+// })  
+
+
+function print(){    // callback fn
+    console.log("inside print")
+}
+
+function greet(print){   // higher order fn
+    setTimeout(()=>{
+        console.log("hello student")
+        print()
+    },2000) 
+}
+
+greet(print)
