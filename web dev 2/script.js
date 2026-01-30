@@ -168,15 +168,95 @@
 // })  
 
 
-function print(){    // callback fn
-    console.log("inside print")
-}
 
-function greet(print){   // higher order fn
+// function print(){    // callback fn
+//     console.log("inside print")
+// }
+
+// function greet(print){   // higher order fn
+//     setTimeout(()=>{
+//         console.log("hello student")
+//         print()
+//     },2000) 
+// }
+
+// greet(print)
+
+
+
+// console.log("starting homework...");
+
+// setTimeout(()=>{
+//     console.log("homework done!");
+//     console.log("starting dinner...");
+
+//     setTimeout(()=>{
+//         console.log("dinner done!");
+//         console.log("getting ready to go out...");
+
+//         setTimeout(()=>{
+//             console.log("going to the playground!");
+
+//         },1000)   // aftrer dinner
+
+//     },3000)    // dinner time 
+
+// },5000)     // homework time 
+
+
+
+// function finishHomework(callback) {
+//          console.log("starting homework...");
+//          setTimeout(()=>{
+//             console.log("homework done!");
+//             callback();
+//          },4000);
+// }
+
+// function eatDinner(callback) {
+//          console.log("eating dinner...");
+//          setTimeout(()=>{
+//             console.log("dinner done!");
+//             callback();
+//          },2000);
+// }
+
+// function goToPlayground(callback) {
+//          console.log("going to the playground...");
+// }
+
+
+// finishHomework(()=>{
+//     eatDinner(()=>{
+//         goToPlayground();
+//     });
+// });
+
+
+
+// const p = new Promise((resolve,reject)=>{ //resolve()
+//     //reject()  // if empty shows pending
+// })
+
+// console.log(p)
+
+
+const p = new Promise((resolve,reject)=>{
+    console.log("going to do the homework...")
+
     setTimeout(()=>{
-        console.log("hello student")
-        print()
-    },2000) 
-}
+        const done=true;   // if false then not done will be printed
+        if(done){
+            resolve("homework done")
+        }
+        else{
+            reject("not done")
+        }
+    },3000)
+})
 
-greet(print)
+p.then((msg)=>{
+    console.log(msg)
+}).catch((error)=>{
+    console.log(error)
+})
