@@ -55,7 +55,7 @@
 //     console.event.log(event.srcElement[1].value)
 //     console.log(event)
 //     console.log("Form submitted");
-    
+
 // })
 
 
@@ -241,22 +241,87 @@
 // console.log(p)
 
 
-const p = new Promise((resolve,reject)=>{
-    console.log("going to do the homework...")
+// const p = new Promise((resolve,reject)=>{
+//     console.log("going to do the homework...")
 
-    setTimeout(()=>{
-        const done=true;   // if false then not done will be printed
-        if(done){
-            resolve("homework done")
-        }
-        else{
-            reject("not done")
-        }
-    },3000)
+//     setTimeout(()=>{
+//         const done=true;   // if false then not done will be printed
+//         if(done){
+//             resolve("homework done")
+//         }
+//         else{
+//             reject("not done")
+//         }
+//     },3000)
+// })
+
+// p.then((msg)=>{
+//     console.log(msg)
+// }).catch((error)=>{
+//     console.log(error)
+// })
+
+
+
+function doHomework() {
+    const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let done = true;
+            if (done) {
+                console.log("homework complete")
+                resolve("homework done !!")
+            }
+            else {
+                reject("homework not done")
+            }
+        }, 2000)
+    })
+    return p;
+}
+
+function eatDinner() {
+    const p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let done = true;
+            if (done) {
+                console.log("dinner complete")
+                resolve("dinner done !!")
+            }
+            else {
+                reject("dinner not done")
+            }
+        }, 2000)
+    })
+    return p;
+}
+
+function goToPlayground(){
+    const p=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            let done=true;
+            if (done){
+                console.log("went to pg")
+                resolve("pg time")
+            }
+            else{
+                reject("not allowed")
+            }
+        },2000)
+    })
+    return p;
+}
+
+doHomework().then((data)=>{
+    console.log(data)
+    return eatDinner()
+}).then((data)=>{
+    console.log(data)
+    return goToPlayground()
+}).then((data)=>{
+    console.log(data)
 })
-
-p.then((msg)=>{
-    console.log(msg)
-}).catch((error)=>{
+.catch((error)=>{
     console.log(error)
+}).finally(()=>{
+    console.log("go to sleep")
 })
