@@ -263,65 +263,104 @@
 
 
 
-function doHomework() {
-    const p = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let done = true;
-            if (done) {
-                console.log("homework complete")
-                resolve("homework done !!")
-            }
-            else {
-                reject("homework not done")
-            }
-        }, 2000)
-    })
-    return p;
-}
+// // synchronous programming
+// function doHomework() {
+//     const p = new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             let done = true;
+//             if (done) {
+//                 console.log("homework complete")
+//                 resolve("homework done !!")
+//             }
+//             else {
+//                 reject("homework not done")
+//             }
+//         }, 2000)
+//     })
+//     return p;
+// }
 
-function eatDinner() {
-    const p = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let done = true;
-            if (done) {
-                console.log("dinner complete")
-                resolve("dinner done !!")
-            }
-            else {
-                reject("dinner not done")
-            }
-        }, 2000)
-    })
-    return p;
-}
+// function eatDinner() {
+//     const p = new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             let done = true;
+//             if (done) {
+//                 console.log("dinner complete")
+//                 resolve("dinner done !!")
+//             }
+//             else {
+//                 reject("dinner not done")
+//             }
+//         }, 2000)
+//     })
+//     return p;
+// }
 
-function goToPlayground(){
-    const p=new Promise((resolve,reject)=>{
+// function goToPlayground(){
+//     const p=new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             let done=true;
+//             if (done){
+//                 console.log("went to pg")
+//                 resolve("pg time")
+//             }
+//             else{
+//                 reject("not allowed")
+//             }
+//         },2000)
+//     })
+//     return p;
+// }
+
+// doHomework().then((data)=>{
+//     console.log(data)
+//     return eatDinner()
+// }).then((data)=>{
+//     console.log(data)
+//     return goToPlayground()
+// }).then((data)=>{
+//     console.log(data)
+// })
+// .catch((error)=>{
+//     console.log(error)
+// }).finally(()=>{
+//     console.log("go to sleep")
+// })
+
+
+
+function orderFood(){
+    return new Promise((res,rej)=>{
         setTimeout(()=>{
-            let done=true;
-            if (done){
-                console.log("went to pg")
-                resolve("pg time")
-            }
-            else{
-                reject("not allowed")
-            }
+            console.log("food ordered")
+            res()
         },2000)
     })
-    return p;
 }
 
-doHomework().then((data)=>{
-    console.log(data)
-    return eatDinner()
-}).then((data)=>{
-    console.log(data)
-    return goToPlayground()
-}).then((data)=>{
-    console.log(data)
-})
-.catch((error)=>{
-    console.log(error)
-}).finally(()=>{
-    console.log("go to sleep")
-})
+function prepareFood(){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            console.log("food prepared")
+            res()
+            // rej("order cancelled")
+        },2000)
+    })
+}
+
+function deliverFood(){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            console.log("food delivered")
+            res()
+        },2000)
+    })
+}
+
+async function foodOrder(){
+    await orderFood()
+    await prepareFood()
+    await deliverFood()
+    console.log("enjoy your food")
+}
+foodOrder()
