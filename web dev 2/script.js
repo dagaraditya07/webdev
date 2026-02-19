@@ -329,38 +329,77 @@
 
 
 
-function orderFood(){
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
-            console.log("food ordered")
-            res()
-        },2000)
-    })
-}
+// function orderFood(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             console.log("food ordered")
+//             res()
+//         },2000)
+//     })
+// }
 
-function prepareFood(){
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
-            console.log("food prepared")
-            res()
-            // rej("order cancelled")
-        },2000)
-    })
-}
+// function prepareFood(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             console.log("food prepared")
+//             res()
+//             // rej("order cancelled")
+//         },2000)
+//     })
+// }
 
-function deliverFood(){
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
-            console.log("food delivered")
-            res()
-        },2000)
-    })
-}
+// function deliverFood(){
+//     return new Promise((res,rej)=>{
+//         setTimeout(()=>{
+//             console.log("food delivered")
+//             res()
+//         },2000)
+//     })
+// }
 
-async function foodOrder(){
-    await orderFood()
-    await prepareFood()
-    await deliverFood()
-    console.log("enjoy your food")
+// async function foodOrder(){
+//     await orderFood()
+//     await prepareFood()
+//     await deliverFood()
+//     console.log("enjoy your food")
+// }
+// foodOrder()
+
+
+
+// let obj={
+//     name:"noob",
+//     age:171
+// }
+
+// localStorage.setItem("obj",JSON.stringify(obj))
+
+// localStorage.setItem("name","noob")
+// localStorage.setItem("age",171)
+
+// console.log(localStorage.getItem("name"))
+// console.log(localStorage.getItem("age"))
+
+// console.log(JSON.parse(localStorage.getItem("obj")))
+
+// localStorage.removeItem("age")
+// // localStorage.clear()    // clears all
+
+
+sessionStorage.setItem("name","noob")
+sessionStorage.setItem("age",171)
+
+console.log(sessionStorage.getItem("name"))
+console.log(sessionStorage.getItem("age"))
+
+sessionStorage.removeItem("age")
+
+
+document.cookie="name-noob; expires-fri, 20 feb 2026 23:59:59 UTC;"
+document.cookie="age=171; expires-fri, 20 feb 2026 23:59:59 UTC;"
+
+
+async function sample() {
+    await fetch("http://127.0.0.1:3000/web%20dev%202/index.html")
 }
-foodOrder()
+sample()

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Manager & DOM Demo</title>
+    <link rel="stylesheet" href="as1style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="top-row">
+        <section class="card shadow">
+            <h2>Add New Event</h2>
+            <div class="form-group">
+                <label>Event Title:</label>
+                <input type="text" id="eventTitle" placeholder="Enter title...">
+                
+                <label>Event Date:</label>
+                <input type="date" id="eventDate">
+                
+                <label>Category:</label>
+                <select id="eventCategory">
+                    <option value="Conference">Conference</option>
+                    <option value="Social">Social</option>
+                    <option value="Workshop">Workshop</option>
+                </select>
+                
+                <label>Description:</label>
+                <textarea id="eventDesc"></textarea>
+                
+                <button onclick="addEvent()" class="btn-primary">Add Event</button>
+            </div>
+        </section>
+
+        <section class="card shadow">
+            <h2>My Events</h2>
+            <div class="button-row">
+                <button class="btn-secondary" onclick="clearEvents()">Clear All Events</button>
+                <button class="btn-secondary">Add Sample Events</button>
+            </div>
+            <div id="eventList" class="event-list">
+                <div class="event-card">
+                    <span class="delete-icon">✖</span>
+                    <h3>Emifest</h3>
+                    <p class="date">📅 2026-01-14</p>
+                    <span class="badge">Social</span>
+                    <p>lorem ipsum</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="card shadow dom-demo">
+        <h2>DOM Manipulation Demo</h2>
+        <div class="demo-box">
+            <p><strong>innerText vs innerHTML vs textContent</strong></p>
+            <p id="original">Original HTML: <strong>Bold Text</strong> with spaces</p>
+            <p id="htmlOutput"></p>
+            <p id="textOutput"></p>
+            <p id="contentOutput"></p>
+        </div>
+    </section>
+</div>
+
+<script src="as1script.js"></script>
+</body>
+</html>
